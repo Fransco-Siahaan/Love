@@ -411,3 +411,9 @@ article::-webkit-scrollbar {
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+@media (max-width : 400px) {
+    .hero{
+        font-size: calc(1vw + 1em);
+    }
+}
