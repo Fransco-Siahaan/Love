@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
+html{
+    scroll-behavior: smooth;
+}
+
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --kalam : "Kalam", cursive;
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    position: relative;
+}
+
+main video{
+    width: 100%;
+    object-fit: cover;
+}
+
+.hero{
+    color: #fff;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-family: var(--kalam);
+    font-weight: 600;
+    font-size: calc(1vw + 1.1em);
+    letter-spacing: 3px;
+    text-shadow: 0 0 5px #fff;
+    background-color: #00000061;
+    padding: 5px 20px;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, .7);
+    border-radius: 8px;
+}
+
+.form{
+    max-width: 300px;
+    width: 80%;
+    height: 30px;
+    
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form .row{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.btn{
+    height: 100%;
+}
+
+.btn button{
+    padding: 5px 20px;
+    height: 100%;
+    border-radius: 5px;
+    font-family: var(--kalam);
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all .2s ease;
+}
+
+.btn button:hover{
+    border: 1px solid #fff;
+    background-color: #fff;
+    color: #000;
+}
+
+.row input{
+    width: 80%;
+    height: 100%;
+
+    border: 0;
+    border-radius: 3px;
+    outline: 1px solid pink;
+    background-color: transparent;
+    color: #fff;
+    font-family: var(--kalam);
+    padding-left: 5px;
+    letter-spacing: 2px;
+}
+
+.wrong{
+    font-size: 1.3em;
+    font-weight: 600;
+    color: red;
+    font-family: sans-serif;
+
+    position: absolute;
+    top: 100px;
+    animation: fadewrong .5s forwards;
+}
+
+.gambars{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.photo{
+    opacity: 1;
+    pointer-events: visible;
+}
+
+.kenangan{
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+
+    display: none;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+.opengambar{
+    display: grid;
+}
+
+.heart{
+    opacity: 1;
+    pointer-events: visible;
+}
+
+.gambars{
+    max-width: 1200px;
+    width: 90%;
+    height: 400px;
+
+    border-radius: 5px;
+
+    position: absolute;
+    top: 19%;
+    overflow: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.listcerita{
+    width: 100%;
+    padding: 10px 20px;
+    color: #fff;
+    font-family: var(--kalam);
+    font-size: calc(1vw + .3em);
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listcerita ul{
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+.listcerita ul li{
+    letter-spacing: 2px;
+    background-color: transparent;
+    padding: 3px 10px;
+    border-radius: 9px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.listcerita ul li:hover{
+    scale: .95;
+}
+
+
+.kenangan .box{
+    width: 100%;
+    height: 400px;
+    border-radius: 3px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.kenangan .box:hover{
+    box-shadow: 0 0 10px rgba(255, 255, 255, .7);
+}
+
+.box img{
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    transition: all .3s ease-in-out;
+}
+
+.box img:hover{
+    scale: 1.2;
+}
+
+article::-webkit-scrollbar {
+    display: none;
+}
+
+.cerita{
+    color: #fff;
+    text-align: center;
+    display: none;
+    line-height: 35px;
+}
+
+.opencerita{
+    display: block;
+}
+
+.cerita span{
+    margin-right: 5px;
+    font-size: calc(1vw + .5em);
+    font-family: var(--kalam);
+    text-shadow: 0 0 6px rgba(255, 255, 255, .7);
+}
+
+.pesan{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    gap: 2em;
+}
+
+.openpesan{
+    display: flex;
+}
+
+.pesan .btn-ay{
+    padding: 4px 18px;
+    border-radius: 3px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    cursor: pointer;
+    scale: 1.1;
+    font-family: var(--kalam);
+    font-size: 1em;
+
+    transition: all .2s ease;
+}
+
+.pesan .btn-ay:hover{
+    scale: 1;
+    box-shadow: 0 0 19px rgba(255, 255, 255, .7);
+    box-shadow: 0 0 15px inset red;
+}
+
+.pesan .btn-hani{
+    padding: 4px 18px;
+    border-radius: 3px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    cursor: pointer;
+    scale: 1.1;
+    font-family: var(--kalam);
+    font-size: 1em;
+
+    transition: all .2s ease;
+}
+
+.pesan .btn-hani:hover{
+    scale: 1;
+    box-shadow: 0 0 19px rgba(255, 255, 255, .7);
+    box-shadow: 0 0 15px inset red;
+}
+
+.ay{
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    height: 500px;
+    background-color: #ffffff;
+    padding: 6em 1em;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ay p{
+    color: #000;
+    text-align: center;
+    font-size: calc(1vw + .8em);
+    font-family: var(--kalam);
+}
+
+.ay button.x-ay{
+    padding: 9px 16px;
+    border-radius: 50%;font-size: 1em;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+}
+
+.openay{
+    display: flex;
+}
+
+.hani{
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    height: 500px;
+    background-color: #ffffff;
+    padding: 6em 1em;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hani p{
+    color: #000;
+    text-align: center;
+    font-size: calc(1vw + .8em);
+    font-family: var(--kalam);
+}
+
+.hani button.x-hani{
+    padding: 9px 16px;
+    border-radius: 50%;font-size: 1em;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+}
+
+.openhani{
+    display: flex;
+}
+
+@keyframes fadewrong {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@media (max-width : 615px) {
+    .hero{
+        left: 53%;
+        transform: translateX(-60%);
+    }
+
+    .listcerita{
+        font-size: calc(1vw + .5em);
+    }
+
+    .cerita span{
+        font-size: calc(1vw + .8em);
+    }
+
+    .ay{
+        overflow: auto;
+    }
+
+    .ay p{
+        font-size: calc(1vw + 1em);
+    }
+    
+    .ay button.x-ay{
+        font-size: 1.5em;
+    }
+
+    .kenangan{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width : 420px) {
+    .hero{
+        left: 57%;
+        transform: translateX(-60%);
+    }
+
+    .cerita{
+        line-height: 40px;
+    }
+
+    .kenangan{
+        padding: 0 1em;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
